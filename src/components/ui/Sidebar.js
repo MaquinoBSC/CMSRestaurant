@@ -11,7 +11,7 @@ const Sidebar= ()=> {
 
                 <nav className="mt-10">
                     <NavLink to="/" end className={ ({ isActive })=> "p-1 text-gray-400 block hover:bg-yellow-500 hover:text-gray-900 " + (isActive && "text-yellow-500")} >Órdenes</NavLink>
-                    <NavLink to="/menu" style={({isActive})=> console.log(isActive)} end className={ ({ isActive })=> "p-1 text-gray-400 block hover:bg-yellow-500 hover:text-gray-900 " + (isActive && "text-yellow-500")} >Menú</NavLink>
+                    <NavLink to="/menu" style={({ isActive })=> console.log(isActive)} end className={ ({ isActive })=> "p-1 text-gray-400 block hover:bg-yellow-500 hover:text-gray-900 " + (isActive && "text-yellow-500")} >Menú</NavLink>
                 </nav>
             </div>
         </div>
