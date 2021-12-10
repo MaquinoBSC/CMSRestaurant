@@ -1,6 +1,20 @@
 import React from 'react';
+import { useFormik } from 'formik';
 
 const NuevoPlatillo= ()=> {
+    //Validacion y leer los datos del formulario
+    const formik= useFormik({
+        initialValues: {
+            nombre: '',
+            precio: '',
+            categoria: '',
+            imagen: '',
+            descripcion: '',
+        },
+        onSubmit: datos => {
+            console.log(datos);
+        }
+    });
 
     return (
         <>
@@ -8,14 +22,16 @@ const NuevoPlatillo= ()=> {
 
             <div className="flex justify-center mt-10">
                 <div className="w-full max-w-3xl">
-                    <form>
+                    <form onSubmit={ formik.handleSubmit }>
                         <div className="mb-4">
                             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="nombre">Nombre</label>
                             <input 
                                 type="text" 
                                 placeholder="Nombre Platillo" 
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                                id="nombre" 
+                                id="nombre"
+                                value={ formik.values.nombre }
+                                onChange={ formik.handleChange }
                             />
                         </div>
 
@@ -27,6 +43,8 @@ const NuevoPlatillo= ()=> {
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                 id="precio"
                                 min="0" 
+                                value={ formik.values.precio }
+                                onChange={ formik.handleChange }
                             />
                         </div>
 
@@ -36,6 +54,8 @@ const NuevoPlatillo= ()=> {
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
                                 id="categoria"
                                 name="categoria"
+                                value={ formik.values.categoria }
+                                onChange={ formik.handleChange }
                             >
                                 <option value="" > ----- Seleccione ----- </option>
                                 <option value="desayuno" > Desayuno </option>
@@ -52,7 +72,9 @@ const NuevoPlatillo= ()=> {
                             <input 
                                 type="file" 
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" 
-                                id="imagen" 
+                                id="imagen"
+                                value={ formik.values.imagen }
+                                onChange={ formik.handleChange }
                             />
                         </div>
 
@@ -62,6 +84,8 @@ const NuevoPlatillo= ()=> {
                                 placeholder="Descripcion Platillo" 
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline h-40" 
                                 id="descripcion" 
+                                value={ formik.values.descripcion }
+                                onChange={ formik.handleChange }
                             ></textarea>
                         </div>
 
