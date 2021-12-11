@@ -63,7 +63,6 @@ const NuevoPlatillo= ()=> {
                                 value={ formik.values.precio }
                                 onChange={ formik.handleChange }
                                 onBlur={ formik.handleBlur }
-                                onBlur={ formik.handleBlur }
                             />
                         </div>
                         {
